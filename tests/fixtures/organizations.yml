@@ -11,19 +11,6 @@ http_interactions:
       Authorization: token <<github_api_token>>
   response:
     status:
-      status_code: 502
-- request:
-    method: get
-    uri: https://api.github.com/organizations?since=1
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept: application/json, text/xml, application/xml, */*
-      Content-Type: ''
-      Authorization: token <<github_api_token>>
-  response:
-    status:
       status_code: 200
       category: Success
       reason: OK
