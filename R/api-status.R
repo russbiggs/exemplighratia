@@ -17,19 +17,15 @@ status_url <- function() {
 #' gh_api_status()
 #' }
 gh_api_status <- function() {
-  response <- httr::GET(status_url())
+  req <- httr2::request(status_url())
 
-  # Check status
-  httr::stop_for_status(response)
+  response <- httr2::req_perform(req)
 
-  # Parse the content
-  content <- httr::content(response)
+  content <- httr2::resp_body_json(response)
 
-  # Extract the part about the API status
   components <- content$components
+
   api_status <- components[purrr::map_chr(components, "name") == "API Requests"][[1]]
 
-  # Return status
   api_status$status
-
 }

@@ -1,3 +1,8 @@
+vcr::use_cassette("organizations", {
 test_that("gh_organizations works", {
-  testthat::expect_type(gh_organizations(), "character")
+
+  foo <- gh_organizations()
+
+  testthat::expect_type(foo, "character")
+})
 })
